@@ -1,0 +1,28 @@
+# Python cache files
+.pytest_cache/
+*.py[cod]
+*$py.class
+.python-version
+
+# Project specific files
+how_to_read_mark_down
+How_to_read*
+questions_list.tex
+questions_list.txt
+Week2_Course.md
+test_data/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db 
