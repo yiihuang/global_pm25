@@ -4,6 +4,8 @@
 
 ![Dashboard Demo](demo/demo.gif)
 
+Click here to see the live demo: [Global PM2.5 Dashboard](https://yiihuang-global-pm25-streamlit-apphome-agw9wp.streamlit.app/)
+
 ## **Project Overview**  
 This project focuses on retrieving, cleaning, and exploring real-world data on **annual mean PM2.5 concentrations** in urban areas across different countries. The dataset provides a population-weighted average of fine particulate matter (PM2.5) in cities, which is a critical indicator of environmental health risk.
 
