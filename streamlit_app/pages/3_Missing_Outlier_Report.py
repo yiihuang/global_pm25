@@ -1,6 +1,7 @@
 # ======================== Import Required Libraries ========================
 import streamlit as st
 import pandas as pd
+import os
 
 # Custom functions for loading, cleaning, and visualizing the data
 from scripts.data_loader import load_data
@@ -25,7 +26,20 @@ The analysis focuses on handling missing values, duplicates, and outliers to ens
 # Cache the raw CSV load to avoid reloading on every rerun
 @st.cache_data
 def load_raw_data():
-    return pd.read_csv("../data/raw/WHO_PM25_urban_2022.csv")
+    try:
+        # Try the local development path first
+        filepath = "../data/raw/WHO_PM25_urban_2022.csv"
+        if not os.path.exists(filepath):
+            # If not found, try the path relative to the script location
+            script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            filepath = os.path.join(script_dir, "data", "WHO_PM25_urban_2022.csv")
+            
+        # Load the data from the provided CSV file path
+        return pd.read_csv(filepath)
+    
+    except FileNotFoundError:
+        st.error("Raw data file not found. Please ensure WHO_PM25_urban_2022.csv is in the correct location.")
+        st.stop()
 
 df = load_raw_data()
 
